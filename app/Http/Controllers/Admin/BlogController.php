@@ -162,6 +162,8 @@ class BlogController extends AdminBaseController
         $input['slug'] = Str::slug($request->title) . Str::random(4);
         $data->update($input);
         //--- Logic Section Ends
+ $lang = Session::get('lang', 'ar');
+ $input['lang'] =  $lang;
         Session::forget('footer_blogs');
         //--- Redirect Section
         $msg = __('Data Updated Successfully.') . '<a href="' . route("admin-blog-index") . '">' . __("View Post Lists") . '</a>';
